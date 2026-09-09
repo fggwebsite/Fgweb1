@@ -339,7 +339,7 @@ body {
     top: 80px;
     left: 5%;
 
-    font-size: 7rem;
+    font-size: 4.5rem;
   }
 
   .hero__content {
@@ -379,7 +379,7 @@ body {
   .hero__image {
     position: relative;
 
-    width: 125%;
+    width: 95%;
 
     max-width: none;
 
@@ -417,8 +417,8 @@ body {
   }
 
   .hero__image {
-    width: 145%;
-    margin-left: 5%;
+    width: 110%;
+    margin-left: 8%;
   }
 
 }
@@ -702,8 +702,7 @@ body {
   }
 
   .services__watermark {
-    font-size: 5rem;
-    top: 40px;
+    display: none;
   }
 
   .services__grid {
@@ -711,6 +710,15 @@ body {
   }
 }
 
+.why-card__icon {
+  display: inline-flex;
+  color: #fff;
+}
+
+.why-card__icon svg {
+  width: 32px;
+  height: 32px;
+}
 /* Carousel Section */
 
   .marquee-strip{
@@ -949,7 +957,6 @@ body {
   gap: 8px;
 }
 
-.why-card__icon { font-size: 1.6rem; }
 
 .why-card__title {
   margin: 0;
@@ -1472,36 +1479,7 @@ body {
 
 @media (max-width: 900px) {
   .site-header__nav {
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-
-    flex-direction: column;
-    gap: 0;
-
-    background: #fff;
-
-    max-height: 0;
-    overflow: hidden;
-
-    transition: max-height 0.3s ease;
-
-    box-shadow: 0 12px 25px rgba(22, 33, 92, 0.08);
-  }
-
-  .site-header__nav.is-open {
-    max-height: 320px;
-  }
-
-  .site-header__nav a {
-    padding: 16px 6%;
-
-    border-bottom: 1px solid rgba(22, 33, 92, 0.06);
-  }
-
-  .site-header__toggle {
-    display: flex;
+    display: none;
   }
 }
 
