@@ -1,0 +1,484 @@
+/* =========================================
+   SERVICE CARD — click affordance
+========================================= */
+
+.service-card.is-clickable {
+  cursor: pointer;
+}
+
+/* replace the decorative "+" with a real button */
+.service-card__icon {
+  display: none;
+}
+
+/* orange bar: grows up out of the card's bottom orange line */
+.service-card__cta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 3px; /* at rest this IS the card's orange bottom line */
+  padding: 0 18px;
+
+  background: var(--orange);
+  color: #fff;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card__cta-text {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  white-space: nowrap;
+
+  opacity: 0;
+  transform: translateY(6px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card__cta svg {
+  flex-shrink: 0;
+
+  width: 14px;
+  height: 14px;
+
+  opacity: 0;
+  transform: translateX(-10px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* the bar replaces the card's own border, so there is no double line */
+.service-card {
+  border-bottom: 0;
+}
+
+.service-card:hover .service-card__cta,
+.service-card:focus-visible .service-card__cta {
+  height: 32px;
+}
+
+.service-card:hover .service-card__cta-text,
+.service-card:focus-visible .service-card__cta-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.08s;
+}
+
+.service-card:hover .service-card__cta svg,
+.service-card:focus-visible .service-card__cta svg {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.14s;
+}
+
+.service-card:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+/* touch screens have no hover, so keep the bar showing */
+@media (hover: none) {
+  .service-card__cta {
+    height: 30px;
+  }
+
+  .service-card__cta-text,
+  .service-card__cta svg {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+html.svc-modal-lock,
+html.svc-modal-lock body {
+  overflow: hidden;
+}
+
+.svc-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: visibility 0s linear 0.35s;
+}
+
+.svc-modal.is-open {
+  visibility: visible;
+  pointer-events: auto;
+
+  transition-delay: 0s;
+}
+
+.svc-modal__backdrop {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(10, 14, 40, 0.72);
+  backdrop-filter: blur(4px);
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.svc-modal.is-open .svc-modal__backdrop {
+  opacity: 1;
+}
+
+/* ---------- dialog: ~80% of the screen ---------- */
+
+.svc-modal__dialog {
+  position: relative;
+  z-index: 1;
+
+  width: 80vw;
+  height: 80vh;
+  max-width: 1400px;
+
+  display: grid;
+  grid-template-columns: 36% 1fr;
+
+  background: #fff;
+  border-bottom: 4px solid var(--orange);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.35);
+
+  overflow: hidden;
+  outline: none;
+
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+
+  transition:
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.svc-modal.is-open .svc-modal__dialog {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ---------- close button ---------- */
+
+.svc-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  padding: 0;
+
+  background: var(--orange);
+  color: #fff;
+  border: none;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease, transform 0.25s ease;
+}
+
+.svc-modal__close:hover {
+  background: var(--navy);
+  transform: rotate(90deg);
+}
+
+.svc-modal__close:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+/* ---------- left panel ---------- */
+
+.svc-modal__aside {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 48px 40px 40px;
+
+  background: var(--navy);
+  color: #fff;
+
+  overflow-y: auto;
+}
+
+.svc-modal__num {
+  position: absolute;
+  top: 10px;
+  left: 28px;
+
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(5rem, 9vw, 8rem);
+  line-height: 1;
+
+  color: rgba(255, 255, 255, 0.07);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.svc-modal__eyebrow {
+  position: relative;
+
+  margin-bottom: 14px;
+
+  color: var(--orange);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.svc-modal__title {
+  position: relative;
+
+  margin: 0 0 16px;
+
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+
+.svc-modal__tagline {
+  position: relative;
+
+  margin: 0 0 28px;
+
+  color: #b8bdcc;
+
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.svc-modal__media {
+  margin-top: auto;
+
+  border-bottom: 3px solid var(--orange);
+
+  overflow: hidden;
+}
+
+.svc-modal__media[hidden] {
+  display: none;
+}
+
+.svc-modal__media img {
+  display: block;
+
+  width: 100%;
+  max-height: 240px;
+
+  object-fit: cover;
+}
+
+/* ---------- right panel (scrolls) ---------- */
+
+.svc-modal__body {
+  padding: 56px 56px 48px 52px;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  color: var(--gray-text);
+
+  outline: none;
+}
+
+.svc-modal__part {
+  margin: 0 0 22px;
+  padding-bottom: 12px;
+
+  border-bottom: 2px solid var(--orange);
+
+  color: var(--navy);
+
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.svc-modal__part:not(:first-child) {
+  margin-top: 56px;
+}
+
+.svc-modal__section {
+  margin-bottom: 30px;
+}
+
+.svc-modal__heading {
+  margin: 0 0 10px;
+
+  color: var(--navy);
+
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.svc-modal__text {
+  margin: 0 0 12px;
+
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.svc-modal__list {
+  list-style: none;
+
+  margin: 0 0 14px;
+  padding: 0;
+
+  display: grid;
+  gap: 10px;
+}
+
+.svc-modal__list li {
+  position: relative;
+
+  padding: 12px 16px 12px 40px;
+
+  background: var(--bg);
+
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.svc-modal__list li::before {
+  content: '';
+
+  position: absolute;
+  left: 16px;
+  top: 21px;
+
+  width: 10px;
+  height: 10px;
+
+  background: var(--orange);
+}
+
+.svc-modal__list strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.svc-modal__note {
+  margin: 0;
+  padding-left: 16px;
+
+  border-left: 3px solid var(--orange);
+
+  color: var(--navy);
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.svc-modal__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  padding: 0 28px;
+
+  background: var(--orange);
+  color: #fff;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+
+  transition: background 0.2s ease;
+}
+
+.svc-modal__cta:hover {
+  background: var(--navy);
+}
+
+/* ---------- tablet / mobile ---------- */
+
+@media (max-width: 900px) {
+  .svc-modal__dialog {
+    width: 92vw;
+    height: 88vh;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .svc-modal__aside {
+    padding: 28px 70px 24px 24px;
+    overflow: visible;
+  }
+
+  .svc-modal__num {
+    display: none;
+  }
+
+  .svc-modal__title {
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+  }
+
+  .svc-modal__tagline {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+
+  .svc-modal__media {
+    display: none;
+  }
+
+  .svc-modal__body {
+    padding: 28px 24px 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-modal__dialog,
+  .svc-modal__backdrop,
+  .svc-modal__close,
+  .service-card__cta,
+  .service-card__cta-text,
+  .service-card__cta svg {
+    transition: none;
+  }
+}

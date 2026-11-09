@@ -11,6 +11,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="modal.css">
+<link rel="stylesheet" href="about.css">
 </head>
 <body>
 
@@ -23,7 +25,7 @@
     <nav class="site-header__nav" id="site-nav">
       <a href="#top">Home</a>
       <a href="#services">Services</a>
-      <a href="#why-choose">Why Us</a>
+      <a href="#about">About Us</a>
       <a href="#location">Location</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -72,7 +74,7 @@
         <div class="service-card__back">
           <img src="img/img-2.gif" alt="Water and wastewater conveyance line construction and maintenance" class="service-card__img">
           <p class="service-card__desc">
-            We work with different pipe materials like PVC, HDPE (High Density Polyethylene), Ductile Iron, Steel, Concrete, Polymer Concrete, etc. from 75mm to 2000mm in diameter
+            Conventional and trenchless pipeline construction Inspection, repair, and no-dig rehabilitation for operating pipelines.
           </p>
         </div>
       </div>
@@ -86,7 +88,7 @@
         <div class="service-card__back">
           <img src="img/img-3.gif" alt="Land development works" class="service-card__img">
           <p class="service-card__desc">
-            We cater to full land development projects including site clearing, earthworks, road construction, drainage construction, water and sewer line construction of your proposed site development
+            Complete site development, from raw land to build-ready.
           </p>
         </div>
       </div>
@@ -100,7 +102,7 @@
         <div class="service-card__back">
           <img src="img/img-4.gif" alt="Roads and drainages" class="service-card__img">
           <p class="service-card__desc">
-            We are fully equipped to undertake road construction projects in cities and rural areas. We have the right fleet and safety equipment for these kinds of projects
+            Road and drainage construction for urban and rural projects.
           </p>
         </div>
       </div>
@@ -114,7 +116,7 @@
         <div class="service-card__back">
           <img src="img/img-5.gif" alt="Medium-sized facilities" class="service-card__img">
           <p class="service-card__desc">
-            We construct up to five-story buildings for commercial and/or industrial use
+            Commercial and industrial buildings up to five storeys.
           </p>
         </div>
       </div>
@@ -128,7 +130,7 @@
         <div class="service-card__back">
           <img src="img/img-6.gif" alt="Equipment rental" class="service-card__img">
           <p class="service-card__desc">
-            From dump trucks to excavators, our fleet is complete and in working condition for all our horizontal projects. If equipment are idle, they are also available for rent
+            Well-maintained heavy equipment, available for your project.
           </p>
         </div>
       </div>
@@ -165,76 +167,33 @@
   </div>
 </section>
 
-  <!-- 5. WHY CHOOSE US (torn edge overlaps quarry image) -->
-  <section class="why-choose" id="why-choose">
-   
+  <!-- 5. ABOUT US -->
+  <section class="about" id="about">
+    <span class="about__watermark">ABOUT</span>
 
-  <div class="why-choose__inner">
+    <div class="about__inner">
 
-    <div class="why-choose__left">
-      <h2 class="why-choose__title">
-        WHY CHOOSE US<br>
-        FOR PROJECTS!
-      </h2>
-      <p class="why-choose__desc">
-        We deliver high-quality construction and engineering solutions through innovative methods, skilled professionals, and an unwavering commitment to excellence.
-      </p>
-      <a href="#services" class="btn btn--outline">VIEW ALL SERVICES</a>
+      <div class="about__head">
+        <span class="about__eyebrow">WHO WE ARE</span>
+        <h2 class="about__title">About Us</h2>
+        <span class="about__rule"></span>
+        <button type="button" class="about__btn" id="about-open">
+          Mission &amp; Vision
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="about__body">
+        <p class="about__text">
+          The company&rsquo;s workforce is composed of experienced professional staff and entire manpower (heavy equipment operators, foremen, pipe fitters, etc.) who are all focused on one goal, and that is to escalate the workforce competencies &amp; machinery advancement to be able to surpass the already high &amp; qualitative services that it provides. The company also has its own fleet of vehicles and equipment, both heavy and small, which gives the ability to compete very aggressively in terms of our pricing structure.
+        </p>
+        <p class="about__note">
+          FG Guintu Construction &amp; Trading, Inc.&rsquo;s success over the years is due to its employees&rsquo; dedication to excellent work and customer service that exceeds expectations. Our people, our focus, and our track record for delivery present a very strong case for choosing FG Guintu Construction &amp; Trading, Inc. as the preferred construction partner.
+        </p>
+      </div>
+
     </div>
-
-    <div class="why-choose__cards">
-
-      <div class="why-card">
-        <span class="why-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18"/>
-            <path d="M5 21V9l7-5 7 5v12"/>
-            <path d="M9 21v-6h6v6"/>
-            <path d="M9 9h.01M12 9h.01M15 9h.01"/>
-          </svg>
-        </span>
-        <h3 class="why-card__title">Modern Technique</h3>
-        <p class="why-card__text">Advanced methods for efficient project delivery.</p>
-      </div>
-
-      <div class="why-card">
-        <span class="why-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 17h1v-5l2-4h6l2 4h3a2 2 0 0 1 2 2v3h-2"/>
-            <path d="M14 17H9"/>
-            <circle cx="6.5" cy="17.5" r="1.8"/>
-            <circle cx="16.5" cy="17.5" r="1.8"/>
-          </svg>
-        </span>
-        <h3 class="why-card__title">Quality Materials</h3>
-        <p class="why-card__text">Premium materials built to last.</p>
-      </div>
-
-      <div class="why-card">
-        <span class="why-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="7" r="3.5"/>
-            <path d="M5 21v-2a7 7 0 0 1 14 0v2"/>
-          </svg>
-        </span>
-        <h3 class="why-card__title">Professional Team</h3>
-        <p class="why-card__text">Skilled experts committed to excellence.</p>
-      </div>
-
-      <div class="why-card">
-        <span class="why-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/>
-            <path d="M9.5 12l2 2 3.5-3.5"/>
-          </svg>
-        </span>
-        <h3 class="why-card__title">Support</h3>
-        <p class="why-card__text">Reliable assistance whenever you need it.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
+  </section>
 
 <section class="map-section" id="location">
   <div class="map-section__header">
@@ -326,6 +285,8 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
   <script src="script.js"></script>
+  <script src="modal.js"></script>
+  <script src="about.js"></script>
 
 </body>
 </html>

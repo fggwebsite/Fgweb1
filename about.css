@@ -1,0 +1,222 @@
+/* =========================================
+   ABOUT US
+   Load AFTER style.css and modal.css
+========================================= */
+
+.about {
+  position: relative;
+  overflow: hidden;
+
+  padding: 130px 6% 120px;
+
+  background: #fff;
+}
+
+.about__watermark {
+  position: absolute;
+
+  top: 6%;
+  right: 3%;
+
+  font-family: 'Archivo Black', sans-serif;
+
+  font-size: clamp(6rem, 13vw, 12rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+
+  color: var(--watermark);
+
+  z-index: 0;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+.about__inner {
+  position: relative;
+  z-index: 1;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 90px;
+  align-items: start;
+}
+
+/* ---------- left: heading + button ---------- */
+
+.about__eyebrow {
+  display: block;
+
+  margin-bottom: 16px;
+
+  color: var(--orange);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.about__title {
+  margin: 0;
+
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+
+  color: var(--navy);
+}
+
+.about__rule {
+  display: block;
+
+  width: 56px;
+  height: 3px;
+
+  margin: 28px 0 36px;
+
+  background: var(--orange);
+}
+
+.about__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 50px;
+  padding: 0 26px;
+
+  background: var(--navy);
+  color: #fff;
+  border: none;
+
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: background 0.25s ease;
+}
+
+.about__btn svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about__btn:hover,
+.about__btn:focus-visible {
+  background: var(--orange);
+}
+
+.about__btn:hover svg,
+.about__btn:focus-visible svg {
+  transform: translateX(4px);
+}
+
+.about__btn:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+/* ---------- right: description ---------- */
+
+.about__body {
+  max-width: 680px;
+}
+
+.about__text {
+  margin: 0 0 30px;
+
+  color: var(--gray-text);
+
+  font-size: 1.02rem;
+  line-height: 1.9;
+}
+
+.about__note {
+  margin: 0;
+  padding-left: 24px;
+
+  border-left: 3px solid var(--orange);
+
+  color: var(--navy);
+
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.9;
+}
+
+/* ---------- Mission & Vision modal (reuses the .svc-modal look) ---------- */
+
+.svc-modal--about .svc-modal__dialog {
+  height: auto;
+  min-height: 60vh;
+  max-height: 80vh;
+}
+
+.svc-modal--about .svc-modal__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.svc-modal--about .svc-modal__aside {
+  justify-content: center;
+}
+
+.svc-modal--about .svc-modal__tagline {
+  margin-bottom: 0;
+}
+
+.svc-modal--about .svc-modal__part:not(:first-child) {
+  margin-top: 48px;
+}
+
+.about-modal__vision {
+  margin: 0;
+
+  color: var(--navy);
+
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 900px) {
+  .about {
+    padding: 90px 6% 80px;
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .about__watermark {
+    display: none;
+  }
+
+  .svc-modal--about .svc-modal__dialog {
+    min-height: 0;
+  }
+
+  .about-modal__vision {
+    font-size: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__btn,
+  .about__btn svg {
+    transition: none;
+  }
+}
